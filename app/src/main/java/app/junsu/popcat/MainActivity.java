@@ -17,7 +17,17 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imgMainPopCat;
     TextView tvMainCounter;
-    LottieAnimationView vMainAnimation;
+
+    LottieAnimationView vMainAnimation1;
+    LottieAnimationView vMainAnimation2;
+    LottieAnimationView vMainAnimation3;
+    LottieAnimationView vMainAnimation4;
+    LottieAnimationView vMainAnimation5;
+    LottieAnimationView vMainAnimation6;
+    LottieAnimationView vMainAnimation7;
+    LottieAnimationView vMainAnimation8;
+    LottieAnimationView vMainAnimation9;
+    LottieAnimationView vMainAnimation10;
 
     Long clickCount = 0L;
 
@@ -40,7 +50,17 @@ public class MainActivity extends AppCompatActivity {
 
         imgMainPopCat = findViewById(R.id.img_main_popcat);
         tvMainCounter = findViewById(R.id.tv_main_counter);
-        vMainAnimation = findViewById(R.id.v_main_animation);
+
+        vMainAnimation1 = findViewById(R.id.v_main_animation_1);
+        vMainAnimation2 = findViewById(R.id.v_main_animation_2);
+        vMainAnimation3 = findViewById(R.id.v_main_animation_3);
+        vMainAnimation4 = findViewById(R.id.v_main_animation_4);
+        vMainAnimation5 = findViewById(R.id.v_main_animation_5);
+        vMainAnimation6 = findViewById(R.id.v_main_animation_6);
+        vMainAnimation7 = findViewById(R.id.v_main_animation_7);
+        vMainAnimation8 = findViewById(R.id.v_main_animation_8);
+        vMainAnimation9 = findViewById(R.id.v_main_animation_9);
+        vMainAnimation10 = findViewById(R.id.v_main_animation_10);
 
         imgMainPopCat.setOnTouchListener((view, motionEvent) -> {
             switch (motionEvent.getAction()) {
@@ -53,7 +73,29 @@ public class MainActivity extends AppCompatActivity {
                     popSound.play(popSoundId, 1f, 1f, 0, 0, 1f);
                     vibrator.vibrate(50);
 
-                    vMainAnimation.playAnimation();
+                    int digit = (int) (clickCount % 10);
+                    switch (digit) {
+                        case 0:
+                            vMainAnimation1.playAnimation();
+                        case 1:
+                            vMainAnimation2.playAnimation();
+                        case 2:
+                            vMainAnimation3.playAnimation();
+                        case 3:
+                            vMainAnimation4.playAnimation();
+                        case 4:
+                            vMainAnimation5.playAnimation();
+                        case 5:
+                            vMainAnimation6.playAnimation();
+                        case 6:
+                            vMainAnimation7.playAnimation();
+                        case 7:
+                            vMainAnimation8.playAnimation();
+                        case 8:
+                            vMainAnimation9.playAnimation();
+                        case 9:
+                            vMainAnimation10.playAnimation();
+                    }
 
                     clickCount++;
                     tvMainCounter.setText(clickCount.toString());
