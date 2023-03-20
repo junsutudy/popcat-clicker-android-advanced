@@ -11,10 +11,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView imgMainPopCat;
     TextView tvMainCounter;
+    LottieAnimationView vMainAnimation;
 
     Long clickCount = 0L;
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         imgMainPopCat = findViewById(R.id.img_main_popcat);
         tvMainCounter = findViewById(R.id.tv_main_counter);
+        vMainAnimation = findViewById(R.id.v_main_animation);
 
         imgMainPopCat.setOnTouchListener((view, motionEvent) -> {
             switch (motionEvent.getAction()) {
@@ -48,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
                     popSound.play(popSoundId, 1f, 1f, 0, 0, 1f);
                     vibrator.vibrate(50);
+
+                    vMainAnimation.playAnimation();
 
                     clickCount++;
                     tvMainCounter.setText(clickCount.toString());
